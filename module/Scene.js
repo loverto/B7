@@ -74,7 +74,7 @@ class Scene extends Base {
     }
 
     _initAttribution() {
-        var message = '<a href="http://antv.alipay.com/zh-cn/index.html title="Large-scale WebGL-powered Geospatial Data Visualization">Bksx | B7  </a>';
+        var message = '<a href="http://www.bksx.cn" title="Large-scale WebGL-powered Geospatial Data Visualization">Bksx | B7  </a>';
         var element = document.createElement('div');
         element.innerHTML = message;
         element.style.cssText += 'position: absolute; pointer-events:none;background: rgba(255, 255, 255, 0.7);font-size: 11px;z-index:100; padding:4px;bottom: 0;right:0px;';

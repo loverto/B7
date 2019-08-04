@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://gw.alipayobjects.com/os/rmsportal/PqLCOJpqoOUfuPRacUzE.css" />
-    <title>点亮城市</title>
+    <title>点亮石景山</title>
     <style> ::-webkit-scrollbar{display:none;}html,body{overflow:hidden;margin:0;}
     #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
@@ -20,24 +20,24 @@
     var scene = new B7.default.Scene({
         id: 'map',
         mapStyle: 'dark', // 样式URL
-        center: [121.507674, 31.223043],
+        center: [116.1503001,39.92269721],
         pitch: 65.59312320916906,
         zoom: 15.4,
         minZoom: 15,
         maxZoom: 18
     });
     scene.on('loaded', function() {
-        $.get('https://gw.alipayobjects.com/os/rmsportal/kNDVHmyUWAKhWmWXmjxM.json', function(data) {
+        $.get('http://192.168.130.64:8080/geoserver/shijingshan_test/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=shijingshan_test:shijingshan_shengdao_polyline&outputFormat=application/json', function(data) {
             scene.LineLayer({
                 zIndex: 2
             }).source(data).color('#F08D41').animate({
                 enable: true
             }).render();
         });
-        $.get('https://gw.alipayobjects.com/os/rmsportal/vmvAxgsEwbpoSWbSYvix.json', function(data) {
+        $.get('http://192.168.130.64:8080/geoserver/shijingshan_test/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=shijingshan_test:shijingshan_allbuildpop&outputFormat=application/json', function(data) {
             scene.PolygonLayer({
                 zIndex: 2
-            }).source(data).shape('extrude').size('floor', [0, 2000]).color('rgba(242,246,250,1.0)').animate({
+            }).source(data).shape('extrude').size('value', [0, 2000]).color('rgba(242,246,250,1.0)').animate({
                 enable: true
             }).style({
                 opacity: 1.0,
