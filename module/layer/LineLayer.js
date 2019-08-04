@@ -2,6 +2,7 @@ import Layer from "./Layer";
 
 import {BufferGeometry, Float32BufferAttribute, LineSegments, Mesh} from "three";
 import LineMaterial from "../geom/material/LineMaterial";
+import Index from "../geom/buffer";
 
 class LineLayer extends Layer{
     shape(type) {
@@ -20,7 +21,7 @@ class LineLayer extends Layer{
         // 获取样式选项
         var style = this.get('styleOptions');
         // 创建buffer
-        var buffer = this._buffer = new Index({
+        var buffer = this._buffer = new Index.line({
             coordinates: source.geoData,
             properties: StyleData,
             shapeType: this.shapeType,
@@ -75,7 +76,7 @@ class LineLayer extends Layer{
                     u_zoom: this.scene.getZoom()
                 });
             }
-            var _mesh = new core_three['Mesh'](geometry, _material);
+            var _mesh = new Mesh(geometry, _material);
             this.add(_mesh);
         } else {
             // 如果都不是，那就用默认的

@@ -1,7 +1,7 @@
 import {AdditiveBlending} from "three";
 
-import * as shader_line_vert_glsl from 'glsl/shader/line.vert.glsl'
-import * as shader_line_farg_glsl from 'glsl/shader/line.frag.glsl'
+import * as shader_line_vert_glsl from '../../glsl/shader/line.vert.glsl'
+import * as shader_line_farg_glsl from '../../glsl/shader/line.frag.glsl'
 import Material from "./Material";
 
 function LineMaterial(options) {

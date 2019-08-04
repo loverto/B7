@@ -1,4 +1,5 @@
 import EventEmitter from "@antv/event-emitter";
+import Util from "./utils/Util";
 
 /**
  * 基础工具类
@@ -14,7 +15,7 @@ class Base extends EventEmitter {
         var attrs = { visible: true };
         var defaultCfg = this.getDefaultCfg();
         this._attrs = attrs;
-        Object.assign(attrs, defaultCfg, cfg);
+        Util.assign(attrs, defaultCfg, cfg);
     }
 
     get(name) {

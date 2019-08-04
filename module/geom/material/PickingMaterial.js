@@ -1,8 +1,7 @@
-'use strict';
 import Material from "./Material";
 
-import * as picking_vert_glsl from 'glsl/shader/picking.vert.glsl'
-import * as picking_frag_glsl from 'glsl/shader/picking.frag.glsl'
+import * as picking_vert_glsl from '../../glsl/shader/picking.vert.glsl'
+import * as picking_frag_glsl from '../../glsl/shader/picking.frag.glsl'
 
 export default function PickingMaterial(options) {
   var material = new Material({

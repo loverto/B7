@@ -3,6 +3,7 @@ import Util from "../utils/Util";
 import fecha from "fecha";
 import TimeUtil from "./TimeUtil";
 import TimeAuto from "./TimeAuto";
+import Linear from "./Linear";
 
 class Time extends Linear{
   getDefaultCfg() {

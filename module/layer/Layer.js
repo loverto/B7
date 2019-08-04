@@ -5,9 +5,21 @@ import SourceIndex from "../source";
 import Util from "../utils/Util";
 import ColorUtil from "../utils/ColorUtil";
 import AttrIndex from "./attr/Index";
+import Global from '../Global';
+
 import PickingMaterial from "../geom/material/PickingMaterial";
 
 var id = 1;
+
+function parseFields(field) {
+    if (Util.isArray(field)) {
+        return field;
+    }
+    if (Util.isString(field)) {
+        return field.split('*');
+    }
+    return [field];
+}
 
 class Layer extends Base{
 
@@ -91,6 +103,7 @@ class Layer extends Base{
     }
 
     source(data) {
+        debugger
         // 设置数据源
         var cfg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
         var dataType = this._getDataType(data);
@@ -450,7 +463,7 @@ class Layer extends Base{
     }
 
     addToPicking(object) {
-        this.scene._engine._picking.add(object);
+        this.scene._engine._picking.Add(object);
     }
     removeFromPicking(object) {
         this.scene._engine._picking.remove(object);

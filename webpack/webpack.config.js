@@ -16,8 +16,11 @@ module.exports = {
     },
 
     output: {
-        filename: 'main.js',
+        library: 'B7',
+        libraryTarget: 'umd',
+        filename: 'B7.js',
         path: path.resolve(__dirname, '../dist')
+
     },
     devtool: 'inline-source-map', devServer: {
         contentBase: './dist',

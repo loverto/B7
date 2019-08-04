@@ -42,7 +42,7 @@ class BufferBase extends Base {
         if (!lastLengths[_k]) {
           lastLengths[_k] = 0;
         }
-        mergedAttributes[_k].set(_attributes[_k], lastLengths[_k]);
+        mergedAttributes[_k].Set(_attributes[_k], lastLengths[_k]);
         lastLengths[_k] += _attributes[_k].length;
       }
     });
@@ -77,12 +77,12 @@ class BufferBase extends Base {
         var cy = position[pIndex][index][1];
         var cz = position[pIndex][index][2];
         pA.set(ax, ay, az);
-        pB.set(bx, by, bz);
-        pC.set(cx, cy, cz);
+        pB.Set(bx, by, bz);
+        pC.Set(cx, cy, cz);
         cb.subVectors(pC, pB);
         ab.subVectors(pA, pB);
         cb.cross(ab);
-        cb.normalize();
+        cb.Normalize();
         var nx = cb.x;
         var ny = cb.y;
         var nz = cb.z;
@@ -164,13 +164,13 @@ class BufferBase extends Base {
         var cx = shapes[pIndex][index][0];
         var cy = shapes[pIndex][index][1];
         var cz = shapes[pIndex][index][2];
-        pA.set(ax, ay, az);
-        pB.set(bx, by, bz);
-        pC.set(cx, cy, cz);
+        pA.Set(ax, ay, az);
+        pB.Set(bx, by, bz);
+        pC.Set(cx, cy, cz);
         cb.subVectors(pC, pB);
         ab.subVectors(pA, pB);
         cb.cross(ab);
-        cb.normalize();
+        cb.Normalize();
         var nx = cb.x;
         var ny = cb.y;
         var nz = cb.z;

@@ -32,10 +32,10 @@ class LineBuffer extends BufferBase{
             // 获取坐标中的属性信息
             var attrData = _this._getShape(geo, props, index);
             //
-            positions.push.apply(positions, _toConsumableArray(attrData.positions));
-            positionsIndex.push.apply(positionsIndex, _toConsumableArray(attrData.indexes));
+            positions.push.apply(positions, attrData.positions);
+            positionsIndex.push.apply(positionsIndex, attrData.indexes);
             if (attrData.hasOwnProperty('instances')) {
-                instances.push.apply(instances, _toConsumableArray(attrData.instances));
+                instances.push.apply(instances, attrData.instances);
             }
         });
         // 属性样式结构
@@ -52,7 +52,7 @@ class LineBuffer extends BufferBase{
     _getShape(geo, props, index) {
         // 获取形状
         if (!this.shapeType) {
-            return ShapeIndex.defaultLine(geo, index);
+            return ShapeIndex.line.defaultLine(geo, index);
         }
         var shape = this.shapeType;
         if (shape === 'meshLine') {
@@ -77,11 +77,11 @@ class LineBuffer extends BufferBase{
             var props = properties[index];
             var positionCount = positions.length / 3;
             var attrData = _this2._getShape(geo, props, positionCount);
-            positions.push.apply(positions, _toConsumableArray(attrData.positions));
-            colors.push.apply(colors, _toConsumableArray(attrData.colors));
-            indexArray.push.apply(indexArray, _toConsumableArray(attrData.indexArray));
-            instances.push.apply(instances, _toConsumableArray(attrData.instances));
-            sizes.push.apply(sizes, _toConsumableArray(attrData.sizes));
+            positions.push.apply(positions,attrData.positions);
+            colors.push.apply(colors, attrData.colors);
+            indexArray.push.apply(indexArray, attrData.indexArray);
+            instances.push.apply(instances, attrData.instances);
+            sizes.push.apply(sizes, attrData.sizes);
         });
         return {
             positions: positions,
@@ -107,14 +107,14 @@ class LineBuffer extends BufferBase{
             var props = properties[index];
             var positionCount = positions.length / 3;
             var attr = ShapeIndex.Line(geo, props, positionCount, lineType !== 'soild');
-            positions.push.apply(positions, _toConsumableArray(attr.positions));
-            normal.push.apply(normal, _toConsumableArray(attr.normal));
-            miter.push.apply(miter, _toConsumableArray(attr.miter));
-            colors.push.apply(colors, _toConsumableArray(attr.colors));
-            indexArray.push.apply(indexArray, _toConsumableArray(attr.indexArray));
-            sizes.push.apply(sizes, _toConsumableArray(attr.sizes));
-            attrDistance.push.apply(attrDistance, _toConsumableArray(attr.attrDistance));
-            pickingIds.push.apply(pickingIds, _toConsumableArray(attr.pickingIds));
+            positions.push.apply(positions, attr.positions);
+            normal.push.apply(normal, attr.normal);
+            miter.push.apply(miter, attr.miter);
+            colors.push.apply(colors, attr.colors);
+            indexArray.push.apply(indexArray, attr.indexArray);
+            sizes.push.apply(sizes, attr.sizes);
+            attrDistance.push.apply(attrDistance, attr.attrDistance);
+            pickingIds.push.apply(pickingIds, attr.pickingIds);
         });
         return {
             positions: positions,

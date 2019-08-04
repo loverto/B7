@@ -1,3 +1,4 @@
+import PolylineNormals from "../normal/PolylineNormals";
 
 export default {
   'meshLine':meshLine,
@@ -5,8 +6,6 @@ export default {
   'defaultLine':defaultLine,
   'Line':Line
 }
-var __WEBPACK_IMPORTED_MODULE_1_polyline_normals__ = require('./289');
-var __WEBPACK_IMPORTED_MODULE_1_polyline_normals___default = require.n(__WEBPACK_IMPORTED_MODULE_1_polyline_normals__);
 function isNativeReflectConstruct() {
   if (typeof Reflect === 'undefined' || !Reflect.construct)
     return false;
@@ -217,7 +216,7 @@ function Line(path, props, positionsIndex) {
   var miter = [];
   var colors = [];
   var indexArray = [];
-  var normals = __WEBPACK_IMPORTED_MODULE_1_polyline_normals___default()(path);
+  var normals = PolylineNormals(path);
   var attrDistance = [];
   var sizes = [];
   var c = 0;

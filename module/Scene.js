@@ -27,7 +27,7 @@ class Scene extends Base {
     }
 
     addPickMesh(object) {
-        this._engine._picking.add(object);
+        this._engine._picking.Add(object);
     }
 
     _initMap() {
@@ -37,10 +37,11 @@ class Scene extends Base {
         var Map = new MapProvider(this.mapContainer, this._attrs);
         Map.on('mapLoad', function () {
             _this2._initEngine(Map.renderDom);
+            debugger
             var sceneMap = new GaodeMap(Map.map);
-            sceneMap.forEach(function (key) {
+            Object.getOwnPropertyNames(sceneMap.__proto__).forEach(function (key) {
                 if (true) {
-                    _this2[key] = sceneMap[key];
+                    _this2.__proto__[key] = sceneMap.__proto__[key];
                 }
             });
             _this2.map = Map.map;
@@ -60,7 +61,7 @@ class Scene extends Base {
                 return layer;
             };
         };
-        for (var methodName in layer) {
+        for (var methodName in LayerIndex) {
             _loop(methodName);
         }
     }
@@ -69,7 +70,7 @@ class Scene extends Base {
         if (this.map) {
             this.map.on(type, hander);
         }
-        super.on('on',type,hander);
+        super.on(type,hander);
     }
 
     _initAttribution() {
