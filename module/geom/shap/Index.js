@@ -13,9 +13,10 @@
 // });
 
 import Line from "./Line";
+import Polygon from "./Polygon";
 
 export default {
     'line':Line,
     'point':null,
-    'polygon':null
+    'polygon':Polygon
 }

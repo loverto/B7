@@ -27,7 +27,7 @@ class Scene extends Base {
     }
 
     addPickMesh(object) {
-        this._engine._picking.Add(object);
+        this._engine._picking.add(object);
     }
 
     _initMap() {

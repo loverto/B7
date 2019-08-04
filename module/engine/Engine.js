@@ -1,4 +1,4 @@
-import EventEmitter from "EventEmitter";
+import EventEmitter from "wolfy87-eventemitter";
 import {Clock, Scene} from "three";
 import Camera from "./Camera";
 import Renderer from "./Renderer";
@@ -9,13 +9,13 @@ import Picking from "./Picking";
  */
 class Engine extends EventEmitter{
     constructor(container, world){
-        super()
+        super();
         var _this = this;
         _this._scene = new Scene();
         _this._camera = new Camera(container).camera;
         _this._renderer = new Renderer(container).renderer;
         _this._world = world;
-        _this._picking = Object(Picking)(_this._world, _this._renderer, _this._camera, _this._scene);
+        _this._picking = Picking(_this._world, _this._renderer, _this._camera, _this._scene);
         _this.clock = new Clock();
     }
 

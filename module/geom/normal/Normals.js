@@ -67,7 +67,7 @@ function vertexNormals(faces, positions, specifiedEpsilon) {
   }
   return normals;
 }
-export default function faceNormals(faces, positions, specifiedEpsilon) {
+function faceNormals(faces, positions, specifiedEpsilon) {
   var N = faces.length / 3;
   var normals = new Array(N);
   var epsilon = specifiedEpsilon === void 0 ? DEFAULT_FACE_EPSILON : specifiedEpsilon;
@@ -103,3 +103,4 @@ export default function faceNormals(faces, positions, specifiedEpsilon) {
   }
   return normals;
 }
+export default faceNormals

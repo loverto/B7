@@ -1,15 +1,17 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-exports['fill'] = fill;
-exports['extrude'] = extrude;
-exports['line'] = line;
-exports['extrudeline'] = extrudeline;
-var __WEBPACK_IMPORTED_MODULE_0__extrude__ = require('./Extrude');
+import Extrude from "../buffer/Extrude";
+
+export default {
+  'fill':fill,
+  'extrude':extrude,
+  'line':line,
+  'extrudeline':extrudeline
+}
+
 function fill(points) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__extrude__['a'])(points, false);
+  return Extrude(points, false);
 }
 function extrude(points) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0__extrude__['a'])(points, true);
+  return Extrude(points, true);
 }
 function line(points) {
   var vertIndex = [];

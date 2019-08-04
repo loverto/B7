@@ -1,5 +1,5 @@
 import * as earcut from 'earcut'
-export default function extrudePolygon(points, extrude) {
+function extrudePolygon(points, extrude) {
   var p1 = points[0][0];
   var p2 = points[0][points[0].length - 1];
   var faceUv = [];
@@ -10,7 +10,7 @@ export default function extrudePolygon(points, extrude) {
   var flattengeo = earcut.flatten(points);
   var positions = [];
   var cells = [];
-  var triangles = earcut()(flattengeo.vertices, flattengeo.holes, flattengeo.dimensions);
+  var triangles = earcut(flattengeo.vertices, flattengeo.holes, flattengeo.dimensions);
   cells = triangles;
   var pointCount = flattengeo.vertices.length / 3;
   var vertices = flattengeo.vertices;
@@ -116,3 +116,4 @@ function extrudePolygonLine(points, extrude) {
     positionsIndex: cells
   };
 }
+export default extrudePolygon

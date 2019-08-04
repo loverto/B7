@@ -1,4 +1,4 @@
-import * as Util from "lodash";
+import Util from "../utils/Util";
 import Base from "./Scale";
 import Category from "./Category";
 import Linear from "./Linear";
@@ -7,6 +7,7 @@ import Time from "./Time";
 import TimeCategory from "./TimeCategory";
 import Log from "./Log";
 import Pow from "./Pow";
+
 
 Base.Linear = Linear;
 Base.Identity = Identity;

@@ -1,4 +1,4 @@
-import EventEmitter from "@antv/event-emitter";
+import EventEmitter from "wolfy87-eventemitter";
 import Util from "./utils/Util";
 
 /**

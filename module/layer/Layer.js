@@ -463,7 +463,7 @@ class Layer extends Base{
     }
 
     addToPicking(object) {
-        this.scene._engine._picking.Add(object);
+        this.scene._engine._picking.add(object);
     }
     removeFromPicking(object) {
         this.scene._engine._picking.remove(object);

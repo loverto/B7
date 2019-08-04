@@ -1,8 +1,9 @@
 import {LinearFilter, Raycaster, RGBAFormat, Scene, WebGLRenderTarget} from "three";
 
-var nextId = 1;
+
 
 class Picking {
+    nextId = 1;
     constructor(world, renderer, camera, scene) {
         this._world = world;
         this._renderer = renderer;
@@ -34,8 +35,8 @@ class Picking {
         window.addEventListener('resize', this._resizeHandler, false);
         this._mouseUpHandler = this._onMouseUp.bind(this);
         this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
-        this._world._container.addEventListener('mousemove', this._mouseUpHandler, false);
-        this._world._container.addEventListener('mousemove', this._onWorldMove.bind(this), false);
+        //this._world._container.addEventListener('mousemove', this._mouseUpHandler, false);
+        //this._world._container.addEventListener('mousemove', this._onWorldMove.bind(this), false);
     }
     _onMouseUp(event) {
         var point = {
@@ -65,7 +66,8 @@ class Picking {
     _update(point) {
         var texture = this._pickingTexture;
         if (this._needUpdate) {
-            this._renderer.render(this._pickingScene, this._camera, this._pickingTexture);
+            this._renderer.render(this._pickingScene, this._camera);
+            this._renderer.setRenderTarget(this._pickingTexture);
             this._needUpdate = false;
         }
         this.pixelBuffer = new Uint8Array(4);

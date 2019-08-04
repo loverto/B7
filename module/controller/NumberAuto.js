@@ -1,5 +1,6 @@
-import * as Util from "lodash";
-import * as AutoUtil from "./AutoUtil";
+import Util from "../utils/Util";
+import AutoUtil from "./AutoUtil";
+import Global from '../Global';
 
 var MIN_COUNT = 5;
 var MAX_COUNT = 7;

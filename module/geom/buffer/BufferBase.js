@@ -1,5 +1,7 @@
 import Base from "../../Base";
 import Extrude from "./Extrude";
+import {Texture, Vector3} from "three";
+import Normals from "../normal/Normals";
 
 class BufferBase extends Base {
   constructor(cfg) {
@@ -14,12 +16,12 @@ class BufferBase extends Base {
   _normals() {
     var _this$bufferStruct = this.bufferStruct, position = _this$bufferStruct.position, indices = _this$bufferStruct.indices, _this$bufferStruct$no = _this$bufferStruct.normals, normals = _this$bufferStruct$no === void 0 ? [] : _this$bufferStruct$no;
     indices.forEach(function (index, i) {
-      normals.push(Object(Normals)(index, position[i]));
+      normals.push(Normals(index, position[i]));
     });
     this.bufferStruct.normals = normals;
   }
   _extrude(coordinate, heightValue) {
-    var extrudeData = Object(Extrude)(coordinate, heightValue);
+    var extrudeData = Extrude(coordinate, heightValue);
     return extrudeData;
   }
   _mergeAttributes(attributes) {
@@ -42,7 +44,7 @@ class BufferBase extends Base {
         if (!lastLengths[_k]) {
           lastLengths[_k] = 0;
         }
-        mergedAttributes[_k].Set(_attributes[_k], lastLengths[_k]);
+        mergedAttributes[_k].set(_attributes[_k], lastLengths[_k]);
         lastLengths[_k] += _attributes[_k].length;
       }
     });
@@ -55,10 +57,10 @@ class BufferBase extends Base {
     var colors = new Float32Array(indexCount * 4);
     var pickingIds = new Float32Array(indexCount);
     var pA = new Vector3();
-    var pB = new core_three['Vector3']();
-    var pC = new core_three['Vector3']();
-    var cb = new core_three['Vector3']();
-    var ab = new core_three['Vector3']();
+    var pB = new Vector3();
+    var pC = new Vector3();
+    var cb = new Vector3();
+    var ab = new Vector3();
     var lastIndex = 0;
     indices.forEach(function (indice, pIndex) {
       for (var i = 0; i < indice.length / 3; i++) {
@@ -77,12 +79,12 @@ class BufferBase extends Base {
         var cy = position[pIndex][index][1];
         var cz = position[pIndex][index][2];
         pA.set(ax, ay, az);
-        pB.Set(bx, by, bz);
-        pC.Set(cx, cy, cz);
+        pB.set(bx, by, bz);
+        pC.set(cx, cy, cz);
         cb.subVectors(pC, pB);
         ab.subVectors(pA, pB);
         cb.cross(ab);
-        cb.Normalize();
+        cb.normalize();
         var nx = cb.x;
         var ny = cb.y;
         var nz = cb.z;
@@ -140,11 +142,11 @@ class BufferBase extends Base {
     var normals = new Float32Array(indexCount * 3);
     var colors = new Float32Array(indexCount * 4);
     var pickingIds = new Float32Array(indexCount);
-    var pA = new core_three['Vector3']();
-    var pB = new core_three['Vector3']();
-    var pC = new core_three['Vector3']();
-    var cb = new core_three['Vector3']();
-    var ab = new core_three['Vector3']();
+    var pA = new Vector3();
+    var pB = new Vector3();
+    var pC = new Vector3();
+    var cb = new Vector3();
+    var ab = new Vector3();
     var lastIndex = 0;
     indices.forEach(function (indice, pIndex) {
       for (var i = 0; i < indice.length / 3; i++) {
@@ -164,13 +166,13 @@ class BufferBase extends Base {
         var cx = shapes[pIndex][index][0];
         var cy = shapes[pIndex][index][1];
         var cz = shapes[pIndex][index][2];
-        pA.Set(ax, ay, az);
-        pB.Set(bx, by, bz);
-        pC.Set(cx, cy, cz);
+        pA.set(ax, ay, az);
+        pB.set(bx, by, bz);
+        pC.set(cx, cy, cz);
         cb.subVectors(pC, pB);
         ab.subVectors(pA, pB);
         cb.cross(ab);
-        cb.Normalize();
+        cb.normalize();
         var nx = cb.x;
         var ny = cb.y;
         var nz = cb.z;
@@ -330,7 +332,7 @@ class BufferBase extends Base {
     context2.webkitImageSmoothingEnabled = false;
     context2.mozImageSmoothingEnabled = false;
     context2.drawImage(canvas, 0, 0, canvas2.width, canvas2.height);
-    var texture = new core_three['Texture'](canvas2);
+    var texture = new Texture(canvas2);
     texture.needsUpdate = true;
     return texture;
   }
@@ -338,6 +340,3 @@ class BufferBase extends Base {
 }
 
 export default BufferBase
-
-// var normals = require('./Normals');
-// var extrude = require('./Extrude');

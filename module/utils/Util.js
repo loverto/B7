@@ -1,4 +1,5 @@
 import * as Utils from '@antv/util'
+
 var Util = Utils.mix({}, Utils, {
     assign: Utils.mix,
     merge: Utils.deepMix,
