@@ -68,8 +68,9 @@ class Picking {
     _update(point) {
         var texture = this._pickingTexture;
         if (this._needUpdate) {
-            this._renderer.render(this._pickingScene, this._camera);
-            this._renderer.setRenderTarget(this._pickingTexture);
+            // 这个地方注释掉，之前的有问题，鼠标悬浮上会出现异常
+            // this._renderer.render(this._pickingScene, this._camera);
+            // this._renderer.setRenderTarget(this._pickingTexture);
             this._needUpdate = false;
         }
         this.pixelBuffer = new Uint8Array(4);
