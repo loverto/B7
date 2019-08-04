@@ -278,6 +278,11 @@ class Layer extends Base{
         }
     }
 
+    /**
+     *
+     * @param e
+     * @private
+     */
     _addActiveFeature(e) {
         var featureId = e.featureId;
         var activeStyle = this.get('activedOptions');

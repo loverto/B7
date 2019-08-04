@@ -1,6 +1,6 @@
 import Material from "./Material";
-import * as shader_polygon_vert_glsl from '../../glsl/shader/line.vert.glsl'
-import * as shader_polygon_frag_glsl from '../../glsl/shader/line.frag.glsl'
+import * as shader_polygon_vert_glsl from '../../glsl/shader/polygon.vert.glsl'
+import * as shader_polygon_frag_glsl from '../../glsl/shader/polygon.frag.glsl'
 
 function PolygonMaterial(options) {
   var material = new Material({
