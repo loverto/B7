@@ -103,7 +103,6 @@ class Layer extends Base{
     }
 
     source(data) {
-        debugger
         // 设置数据源
         var cfg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
         var dataType = this._getDataType(data);

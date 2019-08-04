@@ -37,7 +37,6 @@ class Scene extends Base {
         var Map = new MapProvider(this.mapContainer, this._attrs);
         Map.on('mapLoad', function () {
             _this2._initEngine(Map.renderDom);
-            debugger
             var sceneMap = new GaodeMap(Map.map);
             Object.getOwnPropertyNames(sceneMap.__proto__).forEach(function (key) {
                 if (true) {

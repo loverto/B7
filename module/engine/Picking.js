@@ -1,4 +1,4 @@
-import {LinearFilter, Raycaster, RGBAFormat, Scene, WebGLRenderTarget} from "three";
+import {LinearFilter, Raycaster, RGBAFormat, Scene, Vector2, WebGLRenderTarget} from "three";
 
 
 
@@ -13,7 +13,8 @@ class Picking {
         this._envents = [];
         this._raycaster.linePrecision = 3;
         this._pickingScene = new Scene();
-        var size = this._renderer.getSize();
+        var vector2Size = new Vector2();
+        var size = this._renderer.getSize(vector2Size);
         this._width = size.width;
         this._height = size.height;
         var parameters = {
@@ -35,8 +36,8 @@ class Picking {
         window.addEventListener('resize', this._resizeHandler, false);
         this._mouseUpHandler = this._onMouseUp.bind(this);
         this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
-        //this._world._container.addEventListener('mousemove', this._mouseUpHandler, false);
-        //this._world._container.addEventListener('mousemove', this._onWorldMove.bind(this), false);
+        this._world._container.addEventListener('mousemove', this._mouseUpHandler, false);
+        this._world._container.addEventListener('mousemove', this._onWorldMove.bind(this), false);
     }
     _onMouseUp(event) {
         var point = {
@@ -55,7 +56,8 @@ class Picking {
         this._needUpdate = true;
     }
     _resizeTexture() {
-        var size = this._renderer.getSize();
+        var vector2Size = new Vector2();
+        var size = this._renderer.getSize(vector2Size);
         this._width = size.width;
         this._height = size.height;
         this._pickingTexture.setSize(this._width, this._height);
